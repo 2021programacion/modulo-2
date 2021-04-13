@@ -1,0 +1,48 @@
+<!DOCTYPE htm>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2</title>
+</head>
+<body>
+    <h5>Ingrese un valor</h5>
+    <label for="numero">Numero: </label>
+    <input type="number" id="numero">
+
+    <button onclick="procedimiento()">Ejecutar funcion</button>
+    
+    <h5 id="respuesta-h5"></h5>
+    <input id="respuesta-input">
+
+    <script>
+        function procedimiento() {
+            valor_recuperado = parseFloat(document.getElementById("numero").value);
+            valor_recuperado = valor_recuperado + 5;              
+
+
+            /* Muestra alerta */
+            alert("El número ingresado mas 5 es: " + valor_recuperado);
+
+            /* Modifica elemento grafico h5 */
+            document.getElementById("respuesta-h5").innerHTML = valor_recuperado;
+            
+            /* Completa el input */
+            document.getElementById("respuesta-input").value = valor_recuperado
+
+            if (valor_recuperado > 20) 
+            {
+                alert('El numero ingresado mas 5 es MAYOR a 20') 
+            } 
+            else {
+                alert('El numero ingresado mas 5 es MENOR a 20')
+            }
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
+
