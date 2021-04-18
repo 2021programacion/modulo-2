@@ -1,0 +1,289 @@
+<!DOCTYPE htm>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2</title>
+</head>
+
+<body>
+    <h5>Ej. 2 - Ingrese 3 números para ver cuál es el mayor</h5>
+    <label for="numero">1er Número: </label>
+    <input type="number" id="numero_1">
+
+    <label for="numero">2do Número: </label>
+    <input type="number" id="numero_2">
+
+    <label for="numero">3er Número: </label>
+    <input type="number" id="numero_3">
+
+    <button onclick="procedimiento()">Comparar</button>
+
+    <h5 id="etiq_numero_mayor"></h5>
+    <input id="numero_mayor">
+
+    <script>
+        function procedimiento() {
+            numero_1 = parseFloat(document.getElementById("numero_1").value);
+            numero_2 = parseFloat(document.getElementById("numero_2").value);
+            numero_3 = parseFloat(document.getElementById("numero_3").value);
+
+            if (numero_1 > numero_2 && numero_1 > numero_3) {
+                document.getElementById("numero_mayor").value = numero_1
+            } else {
+                if (numero_2 > numero_1 && numero_2 > numero_3) {
+                    document.getElementById("numero_mayor").value = numero_2
+                } else {
+                    document.getElementById("numero_mayor").value = numero_3
+                }
+            }
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 3 - Ingrese un número y una letra para repetir la letra n veces</h5>
+    <label for="numero_ej2">Número: </label>
+    <input type="number" id="numero_ej2">
+
+    <label for="letra">Letra: </label>
+    <input type="text" id="letra">
+
+    <button onclick="procedimiento_ej2()">Repetir Letra</button>
+
+    <h5 id="letra_rep"></h5>
+    <input id="repetir_letra">
+
+    <script>
+        function procedimiento_ej2() {
+            numero_ej2 = parseFloat(document.getElementById("numero_ej2").value);
+            letra = document.getElementById("letra").value;
+            texto = ''
+
+            for (i = 0; i < numero_ej2; i++) {
+                texto = texto + letra
+            }
+
+            document.getElementById("repetir_letra").value = texto
+
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 4 - Conversor de temperatura</h5>
+    <label for="temp_C">°C: </label>
+    <input type="temp_cent" id="temp_cent">
+
+    <label for="temp_F">Fahrenheit: </label>
+    <input type="temp_far" id="temp_far">
+
+    <button onclick="procedimiento_ej3()">Convertir</button>
+    <button onclick="procedimiento_ej3_2()">Resetear</button>
+
+    <script>
+        function procedimiento_ej3() {
+            temp_cent = document.getElementById("temp_cent").value;
+            temp_far = document.getElementById("temp_far").value;
+
+            if (temp_cent == "" && temp_far != "") {
+                document.getElementById("temp_cent").value = (parseFloat(temp_far) - 32) * (5 / 9)
+            } else {
+                if (temp_cent != "" && temp_far == "") {
+                    document.getElementById("temp_far").value = (parseFloat(temp_cent) * (9 / 5)) + 32
+                } else {
+                    alert('Debe ingresar una temperatura o resetear el sistema')
+                }
+            }
+        }
+
+        function procedimiento_ej3_2() {
+            document.getElementById("temp_cent").value = ''
+            document.getElementById("temp_far").value = ''
+
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 5 - Contador de letras</h5>
+
+    <label for="palabra">Palabra: </label>
+    <input type="text" id="palabra_ing">
+
+    <button onclick="procedimiento_ej5 ()">Contar letras</button>
+
+    <h5 id="letras"></h5>
+    <p id="contar_letras"></p>
+
+    <script>
+        function procedimiento_ej5() {
+            texto_ej5 = document.getElementById("palabra_ing").value;
+            c_letras = texto_ej5.length;
+
+            document.getElementById("contar_letras").innerText = "La palabra " + texto_ej5 + " tiene " + parseFloat(c_letras) + " letras.";
+
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 6 - Es número par?</h5>
+    <label for="number">Ingrese el número: </label>
+    <input type="num_ej6" id="num_ej6">
+
+    <button onclick="procedimiento_ej6()">Verificar</button>
+    <h5></h5>
+    <h5 id="res_ej6"></h5>
+
+
+    <script>
+        function procedimiento_ej6() {
+            var_ej6 = document.getElementById("num_ej6").value;
+
+            if (parseInt(var_ej6) % 2 == 0) {
+                document.getElementById("res_ej6").innerText = "El número es par"
+            } else {
+                document.getElementById("res_ej6").innerText = "El número es impar"
+            }
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 7 - Mpultiplos del número menores a 20</h5>
+    <label for="number">Ingrese el número: </label>
+    <input type="num_ej7" id="num_ej7">
+
+    <button onclick="procedimiento_ej7()">Verificar</button>
+    <h5></h5>
+    <h5 id="res_ej7"></h5>
+
+    <script>
+        function procedimiento_ej7() {
+            var_ej7 = document.getElementById("num_ej7").value;
+            cad_ej7 = ""
+
+            for (i = 1; i < 20; i++) {
+                if (i * parseInt(var_ej7) < 20) {
+                    cad_ej7 = cad_ej7 + (i * parseInt(var_ej7)) + ", "
+                }
+
+                document.getElementById("res_ej7").innerText = "Los múltiplos son: " + cad_ej7
+            }
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 8 - Números primos menores al ingresado</h5>
+    <label for="number">Ingrese el número: </label>
+    <input type="num_ej8" id="num_ej8">
+
+    <button onclick="procedimiento_ej8()">Verificar</button>
+    <h5></h5>
+    <h5 id="res_ej8_2"></h5>
+
+    <script>
+        function procedimiento_ej8() {
+            var_ej8 = document.getElementById("num_ej8").value;
+            cont_ej8 = 0;
+            cad_ej8 = "";
+
+            for (m = 2; m < parseInt(var_ej8); m++) {
+
+                for (i = 2; i < m; i++) {
+                    if (m % i == 0) {
+                        cont_ej8 = cont_ej8 + 1;
+                    }
+                }
+
+                if (parseInt(cont_ej8) == 0) {
+                    cad_ej8 = cad_ej8 + m + "; "
+                }
+                cont_ej8 = 0
+            }
+
+            document.getElementById("res_ej8_2").innerText = cad_ej8
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 9 - Concatenar texto</h5>
+    <label for="nombre">Nombre: </label>
+    <input type="nom_ej9" id="nom_ej9">
+    <h5></h5>
+    <label for="apellido">Apellido: </label>
+    <input type="ape_ej9" id="ape_ej9">
+    <h5></h5>
+    <label for="edad">Edad: </label>
+    <input type="eda_ej9" id="eda_ej9">
+    <h5></h5>
+    <label for="ciudad">Ciudad de Nacimiento: </label>
+    <input type="ciu_ej9" id="ciu_ej9">
+    <h5></h5>
+
+
+    <button onclick="procedimiento_ej9()">Concatenar</button>
+    <h5></h5>
+    <h5 id="res_ej9"></h5>
+
+    <script>
+        function procedimiento_ej9() {
+            nom_ej9 = document.getElementById("nom_ej9").value;
+            ape_ej9 = document.getElementById("ape_ej9").value;
+            eda_ej9 = document.getElementById("eda_ej9").value;
+            ciu_ej9 = document.getElementById("ciu_ej9").value;
+
+            document.getElementById("res_ej9").innerText = "Mi nombre es " + nom_ej9 + " " + ape_ej9 + ", tengo " + eda_ej9 + " años. Nací en la ciudad de " + ciu_ej9
+        }
+    </script>
+
+    <hr style="margin-top: 50px;margin-left: 50px; margin-right: 50px;" class="featurette-divider">
+
+    <h5>Ej. 10 - completar serie</h5>
+    <label for="num_1">Número 1: </label>
+    <input type="num_ej10_1" id="num_ej10_1">
+
+    <label for="num_2">Número 2: </label>
+    <input type="num_ej10_2" id="num_ej10_2">
+
+
+    <button onclick="procedimiento_ej10()">Concatenar</button>
+    <h5></h5>
+    <h5 id="res_ej10"></h5>
+
+    <script>
+        function procedimiento_ej10() {
+            num_ej10_1 = document.getElementById("num_ej10_1").value;
+            num_ej10_2 = document.getElementById("num_ej10_2").value;
+            serie = ""
+
+            if (parseInt(num_ej10_1) == parseInt(num_ej10_2)) {
+                alert("Los números no pueden ser iguales, vuelva a ingresarlos.")
+                document.getElementById("num_ej10_1").value = ""
+                document.getElementById("num_ej10_2").value = ""
+            } else {
+                if (parseInt(num_ej10_1) < parseInt(num_ej10_2)) {
+                    dif = parseInt(num_ej10_2) - parseInt(num_ej10_1)
+                    for (i = 1; i < parseInt(dif); i++) {
+                        serie = serie + (parseInt(num_ej10_1) + parseInt(i)) + "; "
+                    }
+                } else {
+                    dif = parseInt(num_ej10_1) - parseInt(num_ej10_2)
+                    for (i = 1; i < parseInt(dif); i++) {
+                        serie = serie + (parseInt(num_ej10_2) + parseInt(i)) + "; "
+                    }
+                }
+                document.getElementById("res_ej10").innerText = "La serie se completa con: " + serie
+
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
